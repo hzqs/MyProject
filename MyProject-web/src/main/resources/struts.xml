@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	
+	<!-- 设置系统参数 -->
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.ui.theme" value="simple"/>
+
+	<!-- 设置Action -->
+	<package name="mytest" extends="json-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<action name="userAction_*" method="{1}" class="userAction">
+			<result name="mains">/main.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="managerAction_*" method="{1}" class="managerAction">
+			<result name="addManager" type="redirect">/Manager.jsp?res=${res}</result>
+             <result name="findManager" type="json">
+				 <param name="includeProperties">magList.*</param>
+			 </result>
+			<result name="toApdate">/updateManager.jsp</result>
+			<result name="deleteManager" type="redirect">/Manager.jsp?res=${res}</result>
+		</action>
+
+		<action name="roomAction_*" method="{1}" class="roomAction">
+			<result name="addRoom" type="redirect">/main.jsp?res=${res}</result>
+		    <result name="findRoom" type="json">
+				<param name="includeProperties">roomList.*</param>
+			</result>
+
+		</action>
+
+		<action name="stuAction_*" method="{1}" class="stuAction">
+			<result name="addStu" type="json">
+				<param name="includeProperties">message.*</param>
+			</result>
+		</action>
+
+		<action name="roominfoAction" method="{1}" class="roominfoAction">
+			<result name="addroominfo">/Public.jsp</result>
+			<result name="findRoomInfo" type="json">
+				<param name="includeProperties">roominfolist.*</param>
+			</result>
+		</action>
+	</package>
+</struts>
+
+
+
+
+
