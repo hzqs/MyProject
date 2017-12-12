@@ -11,4 +11,6 @@ public interface StuDao {
     //添加学生
     public boolean addStu(Stu stu);
 
+
+
 }

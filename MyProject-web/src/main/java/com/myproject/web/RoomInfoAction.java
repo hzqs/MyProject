@@ -23,12 +23,15 @@ public class RoomInfoAction {
 
     //添加公告
     public String addRoomInfo(){
-        if(roomInfoService.addRoomInfo(roomPubInfo)){
-            res=1;
+        if(roomPubInfo.getRinfo()!=null&&roomPubInfo.getRinfo().length()>0) {
+            if (roomInfoService.addRoomInfo(roomPubInfo)) {
+                res = 1;
+            } else {
+                res = 2;
+            }
         }else{
-            res=2;
+            res=3;
         }
-
         return "addroominfo";
     }
 
@@ -39,6 +42,7 @@ public class RoomInfoAction {
         return "findRoomInfo";
 
     }
+
 
 
     //
@@ -68,5 +72,13 @@ public class RoomInfoAction {
 
     public void setRoominfolist(List roominfolist) {
         this.roominfolist = roominfolist;
+    }
+
+    public int getRes() {
+        return res;
+    }
+
+    public void setRes(int res) {
+        this.res = res;
     }
 }

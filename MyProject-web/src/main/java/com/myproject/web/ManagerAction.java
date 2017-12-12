@@ -64,6 +64,20 @@ public class ManagerAction {
         return "deleteManager";
     }
 
+    //修改宿管
+    public String updateManager(){
+        if(manager.getMname()!=null&&manager.getMname().length()>0) {
+            if (managerService.updateManger(manager)) {
+                res = 1;
+            } else {
+                res = 2;
+            }
+        }else{
+            res=3;
+        }
+        return "updateManager";
+    }
+
 
 
 

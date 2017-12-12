@@ -17,7 +17,7 @@
     <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 </head>
-<body style="background-color: #bce8f1">
+<body style="background-color: #c8e5bc">
 
 
 
@@ -45,13 +45,9 @@
  </button></a>
 
  <!--天气预报接口-->
- <div style="margin-left: 300px;margin-top: -30px">
-     <iframe id="fancybox-frame" name="fancybox-frame1511698961802" frameborder="0" scrolling="no" hspace="0"
-             src="http://i.tianqi.com/index.php?c=code&a=getcode&id=38&h=60&w=610"></iframe>
- </div>
 
 
- <table id="mytab" class="table table-striped" style="margin-top: -50px">
+ <table id="mytab" class="table table-striped" style="margin-top: 60px">
      <caption style="color:royalblue">宿舍信息:</caption>
      <thead>
      <tr>
@@ -193,9 +189,6 @@ function addStu(){
         $("#message").css("color","red").html("电话格式不对！");
          ok=false;
     }
-    /*if(name==null&&name.length==0){
-         $("#stun").css("color","red").html("学生名不能为空");
-    }*/
     if(ok==true){
      var param=$("#stu").serialize();
         $.post("stuAction_addStu",param,function(data){
@@ -211,12 +204,21 @@ function addStu(){
 
 }
 
-//查询出宿舍详细信息
+
+
+
+//查询出宿舍详细信息(主页)
   function findRoomInfo(){
-
-
-
+        $.post("roomAction_findRoomInfo","",function(data){
+             $.each(data.roomInfoList,function(i,v){
+                 var tr="<tr>";
+                 tr+="<td>"+(i+1)+"</td>";
+                 tr="<td>"+v[0].rname+"</td>";
+                 tr="<tr>";
+             });
+        },"json");
   }
+
 window.onload=findRoomInfo;
 
 </script>

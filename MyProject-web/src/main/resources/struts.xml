@@ -17,18 +17,24 @@
 		</action>
 
 		<action name="managerAction_*" method="{1}" class="managerAction">
-			<result name="addManager" type="redirect">/Manager.jsp?res=${res}</result>
+			<result name="addManager" type="json">
+				<param name="includeProperties">res.*</param>
+			</result>
              <result name="findManager" type="json">
 				 <param name="includeProperties">magList.*</param>
 			 </result>
 			<result name="toApdate">/updateManager.jsp</result>
 			<result name="deleteManager" type="redirect">/Manager.jsp?res=${res}</result>
+		    <result name="updateManager" type="redirect">/updateManager.jsp?res=${res}</result>
 		</action>
 
 		<action name="roomAction_*" method="{1}" class="roomAction">
 			<result name="addRoom" type="redirect">/main.jsp?res=${res}</result>
 		    <result name="findRoom" type="json">
 				<param name="includeProperties">roomList.*</param>
+			</result>
+			<result name="findRoomInfo" type="json">
+				<param name="includeProperties">roomInfoList.*</param>
 			</result>
 
 		</action>
@@ -39,8 +45,8 @@
 			</result>
 		</action>
 
-		<action name="roominfoAction" method="{1}" class="roominfoAction">
-			<result name="addroominfo">/Public.jsp</result>
+		<action name="roominfoAction_*" method="{1}" class="roominfoAction">
+			<result name="addroominfo" type="redirect">/Public.jsp?res=${res}</result>
 			<result name="findRoomInfo" type="json">
 				<param name="includeProperties">roominfolist.*</param>
 			</result>

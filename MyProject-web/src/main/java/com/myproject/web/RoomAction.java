@@ -21,6 +21,7 @@ public class RoomAction {
     private RoomService roomService;
     private int res;
     private List roomList;
+    private List roomInfoList;
     public String addRoom(){
         if(room.getRname()!=null&&room.getRname().length()>0) {
             if (roomService.addRoom(room)) {
@@ -42,6 +43,18 @@ public class RoomAction {
     }
 
 
+    //查询宿舍的详细信息（主页）
+
+    public String findRoomInfo(){
+        roomInfoList=roomService.findRoomInfo();
+        return "findRoomInfo";
+    }
+
+
+
+
+
+    //
     public void setRoomService(RoomService roomService) {
         this.roomService = roomService;
     }
@@ -68,5 +81,13 @@ public class RoomAction {
 
     public void setRoomList(List roomList) {
         this.roomList = roomList;
+    }
+
+    public List getRoomInfoList() {
+        return roomInfoList;
+    }
+
+    public void setRoomInfoList(List roomInfoList) {
+        this.roomInfoList = roomInfoList;
     }
 }

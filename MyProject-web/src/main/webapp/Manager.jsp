@@ -17,7 +17,9 @@
     <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 </head>
-<body style="background-color: #f7e1b5">
+<body style="background-color: #c8e5bc">
+
+
 <h2>宿管详情</h2>
 <s:if test="#parameters.res[0]==1">
     <p style="color:green">删除成功！</p>
@@ -45,7 +47,7 @@
 
 <!--添加宿管-->
 
-<form  id="aG" method="post" class="form-horizontal" role="form" style="background-color: #9acfea;height:130px;width:400px;margin-top:-300px;margin-left:330px;display: none">
+<form  id="aG" method="post" class="form-horizontal" role="form" style="position:absolute;background-color: #9acfea;height:130px;width:400px;margin-top:-300px;margin-left:330px;display: none">
     <div class="form-group has-success">
         <label class="col-sm-2 control-label" for="inputSuccess" style="font-size: 15px">名称:</label>
         <div class="col-sm-10">
@@ -57,7 +59,7 @@
         <label class="col-sm-2 control-label" for="inputSuccessd" style="font-size: 15px">电话:</label>
         <div class="col-sm-10">
             <input name="manager.mtel" style="width: 200px;height: 28px" type="text" class="form-control" id="inputSuccessd"><div id="addStuMessage" style="position:absolute;margin-left: 200px;margin-top: -20px"></div>
-            <input type="button" value="添加" onclick="addStu()">
+            <input type="button" value="添加" onclick="addManager()">
             <input type="button" value="取消" onclick="cance()"/>
         </div>
     </div>
@@ -67,6 +69,7 @@
 
 
 
+<a href="${pageContext.request.contextPath}/main.jsp">返回主页</a>
 
 </body>
 </html>
@@ -91,8 +94,8 @@
       $("#aG").hide();//关闭添加宿管的表单
   }
 
-  function addStu(){
-       alert("添加学生");
+  function addManager(){
+
        //用正则表达式验证手机号码
       var ok=true;
       var teg=/^1[358]\d{9}$/;
@@ -100,6 +103,18 @@
       if(!teg.test(mtel.val())){
           $("#addStuMessage").css("color","red").html("电话格式不对");
           ok=false;
+      }
+      if(ok==true){
+          var param=$("#aG").serialize();
+          $.post("managerAction_addManager",param,function(data){
+               if(data.res==1){
+                   alert("添加成功");
+               }else if(data.res==2){
+                   alert("添加失败");
+               }else if(data.res==3){
+                   alert("添加内容不能为空");
+               }
+          });
       }
 
 

@@ -34,6 +34,7 @@ public class ManagerDaoimpi extends BaseDao implements ManagerDao{
 
     }
 
+    //修改宿管
     @Override
     public boolean updateManager(Manager manager) {
          getSession().update(manager);
