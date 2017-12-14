@@ -37,7 +37,7 @@ public class RoomServiceimpi implements RoomService{
     @Override
     public List findRoomInfo() {
         return roomDao.findRoomInfo("select r.rname,r.rpay,count(s.sname),m.mname from Stu s inner join s.room r left join r.manager m" +
-                "group by r.rname \n" );
+                " group by r.rname \n" );
     }
 
     //

@@ -22,7 +22,7 @@
 
 
  <s:if test="#parameters.res[0]==1">
-     <script type="text/javascript">alert("添加成功");history.back();</script>
+     <script type="text/javascript">alert("添加成功");</script>
  </s:if>
  <s:elseif test="#parameters.res[0]==2">
      <script type="text/javascript">alert("添加失败");history.back();</script>
@@ -49,7 +49,6 @@
 
  <table id="mytab" class="table table-striped" style="margin-top: 60px">
      <caption style="color:royalblue">宿舍信息:</caption>
-     <thead>
      <tr>
          <th>宿舍名</th>
          <th>人数</th>
@@ -57,23 +56,6 @@
          <th>宿管</th>
          <th>管理</th>
      </tr>
-     </thead>
-     <tbody>
-     <tr>
-         <td>C栋413</td>
-         <td>10</td>
-         <td>1600</td>
-         <td>杨阿姨</td>
-         <td><a href="">修改</a></td>
-     </tr>
-     <tr>
-         <td>C栋409</td>
-         <td>6</td>
-         <td>1360</td>
-         <td>李宿管</td>
-         <td><a href="">修改</a></td>
-     </tr>
-     </tbody>
  </table>
 
 
@@ -212,9 +194,13 @@ function addStu(){
         $.post("roomAction_findRoomInfo","",function(data){
              $.each(data.roomInfoList,function(i,v){
                  var tr="<tr>";
-                 tr+="<td>"+(i+1)+"</td>";
-                 tr="<td>"+v[0].rname+"</td>";
-                 tr="<tr>";
+                 tr+="<td>"+v[0]+"</td>";
+                 tr+="<td>"+v[2]+"</td>";
+                 tr+="<td>"+v[1]+"</td>";
+                 tr+="<td>"+v[3]+"</td>";
+                 tr+="<td><a href='#'>修改</a> </td>";
+                 tr+="</tr>";
+                 $("#mytab").append(tr);
              });
         },"json");
   }

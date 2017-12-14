@@ -55,11 +55,12 @@ public class ManagerAction {
 
     //删除宿管
     public String deleteManager(){
-        if(managerService.deleteManager(manager)){
-            res=1;
-        }else{
-            res=2;
-        }
+            if (managerService.deleteManager(manager)) {
+                res = 1;
+            } else {
+                res = 2;
+            }
+
 
         return "deleteManager";
     }

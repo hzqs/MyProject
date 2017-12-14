@@ -22,10 +22,10 @@
 
 <h2>宿管详情</h2>
 <s:if test="#parameters.res[0]==1">
-    <p style="color:green">删除成功！</p>
+    <p  id="myp" style="color:green">删除成功！</p>
 </s:if>
 <s:elseif test="#parameters.res[0]==2">
-    <p style="color:red">删除失败！</p>
+    <p id="myp" style="color:red">删除失败！</p>
 </s:elseif>
 
 <button  style="background:yellowgreen;margin-top: 0px" id="fat-btn" class="btn btn-primary" data-loading-text="Loading..."
@@ -81,7 +81,7 @@
          tr+="<td>"+(i+1)+"</td>";
          tr+="<td>"+v.mname+"</td>";
          tr+="<td>"+v.mtel+"</td>";
-         tr+="<td><a href='managerAction_findMangerById?manager.mno="+v.mno+"'>修改</a>&nbsp;|<a href='managerAction_deleteManager?manager.mno="+v.mno+"'>删除</a></td>"
+         tr+="<td><a href='managerAction_findMangerById?manager.mno="+v.mno+"'>修改</a>&nbsp;</td>"
          tr+="</tr>";
          $("#mytab").append(tr);
     });
@@ -108,11 +108,11 @@
           var param=$("#aG").serialize();
           $.post("managerAction_addManager",param,function(data){
                if(data.res==1){
-                   alert("添加成功");
+                  $("#myp").css("color","green").html("添加成功");
                }else if(data.res==2){
-                   alert("添加失败");
+                   $("#myp").css("color","red").html("添加失败");
                }else if(data.res==3){
-                   alert("添加内容不能为空");
+                   $("#myp").css("color","red").html("请完善信息");
                }
           });
       }

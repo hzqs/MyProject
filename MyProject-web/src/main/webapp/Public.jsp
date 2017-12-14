@@ -41,6 +41,7 @@
 
 
 </table>
+<input style="margin-left: 400px" type="button" value="删除" onclick="delete()"/>
 
 
 <form id="pinfo" method="post" action="${pageContext.request.contextPath}/roominfoAction_addRoomInfo" style="height:100px;width:400px;background-color: #ec971f;margin-left: 250px;margin-top: -250px;display: none">
@@ -82,7 +83,7 @@
              now = now + date.getSeconds()+"";
 
              var tr="<tr>";
-                 tr+="<td>"+(i+1)+"</td>";
+                 tr+="<td><input name="+v.rno+" type='checkbox'>"+"</td>";
                  tr+="<td>"+v.rinfo+":&nbsp &nbsp &nbsp"+now+"</td>";
                  tr+="</tr>";
 
