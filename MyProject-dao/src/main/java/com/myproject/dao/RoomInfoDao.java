@@ -13,5 +13,7 @@ public interface RoomInfoDao {
     public boolean addRoomInfo(RoomPubInfo roomPubInfo);
     //查询公告
     public List findRoomInfo(String sql);
+    //删除公告
+    public boolean deleteRoomInfo(RoomPubInfo roomPubInfo);
 
 }

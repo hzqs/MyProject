@@ -45,7 +45,17 @@ public class RoomInfoAction {
 
 
 
-    //
+    //删除公告
+    public String deleteRoomInfo(){
+        if(roomInfoService.deleteRoomInfo(roomPubInfo)){
+            res=1;
+        }else {
+            res=2;
+        }
+        return "deleteRoomInfo";
+    }
+
+
     public RoomPubInfo getRoomPubInfo() {
         return roomPubInfo;
     }

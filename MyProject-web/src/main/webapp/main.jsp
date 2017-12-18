@@ -40,6 +40,11 @@
  <a href="Manager.jsp"><button  style="background:darkkhaki;margin-left:600px;margin-top: 20px" id="fat-btnv" class="btn btn-primary" data-loading-text="Loading..."
           type="button" > 宿管详情
  </button></a>
+
+ <a href="#"><button  style="background: #f0ad4e;margin-left:-650px;margin-top: 20px" id="fat-btnss" class="btn btn-primary" data-loading-text="Loading..."
+                               type="button" > 宿舍管理
+ </button></a>
+
  <a href="Public.jsp"><button  style="background:darkkhaki;margin-left:960px;margin-top: -34px" id="fat-btns" class="btn btn-primary" data-loading-text="Loading..."
                              type="button" > 宿舍公告
  </button></a>
@@ -47,8 +52,8 @@
  <!--天气预报接口-->
 
 
- <table id="mytab" class="table table-striped" style="margin-top: 60px">
-     <caption style="color:royalblue">宿舍信息:</caption>
+ <table id="mytab" class="table table-striped" style="margin-top: 20px">
+     <caption style="color:royalblue">宿舍详细信息:</caption>
      <tr>
          <th>宿舍名</th>
          <th>人数</th>
@@ -58,8 +63,8 @@
      </tr>
  </table>
 
-
- <div style="color:#28a4c9;margin-left: 530px;margin-top: 250px;"><img src="${pageContext.request.contextPath}/images/9.png">欢迎使用!,祝您愉快</div>
+ <a href="${pageContext.request.contextPath}/index.jsp">退出登录</a>
+ <div style="color:#28a4c9;margin-left: 530px;margin-top: 205px;"><img src="${pageContext.request.contextPath}/images/9.png">欢迎使用!,祝您愉快</div>
 
 
 <!-- 添加宿舍-->
@@ -198,7 +203,7 @@ function addStu(){
                  tr+="<td>"+v[2]+"</td>";
                  tr+="<td>"+v[1]+"</td>";
                  tr+="<td>"+v[3]+"</td>";
-                 tr+="<td><a href='#'>修改</a> </td>";
+                 tr+="<td><a href='#'>详情</a> </td>";
                  tr+="</tr>";
                  $("#mytab").append(tr);
              });

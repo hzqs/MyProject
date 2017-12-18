@@ -35,13 +35,13 @@
 </s:elseif>
 <table id="mytab" border="1">
     <tr>
-        <td>序号</td>
+        <td><a href="javascript:selectAll()">全选/反选</a></td>
         <td>公告信息</td>
     </tr>
 
 
 </table>
-<input style="margin-left: 400px" type="button" value="删除" onclick="delete()"/>
+<input style="margin-left: 400px" type="button" value="删除" onclick="deleteInfo()"/>
 
 
 <form id="pinfo" method="post" action="${pageContext.request.contextPath}/roominfoAction_addRoomInfo" style="height:100px;width:400px;background-color: #ec971f;margin-left: 250px;margin-top: -250px;display: none">
@@ -68,7 +68,13 @@
 
     }
 
-
+    function selectAll(){
+        if($(":checkbox:checked").length>0){
+            $(":checkbox").prop("checked",false);
+        }else{
+            $(":checkbox").prop("checked",true);
+        }
+    }
   function Data() {
      $.post("roominfoAction_findRoomInfo","",function (data) {
          $.each(data.roominfolist,function(i,v){
@@ -83,7 +89,7 @@
              now = now + date.getSeconds()+"";
 
              var tr="<tr>";
-                 tr+="<td><input name="+v.rno+" type='checkbox'>"+"</td>";
+                 tr+="<td><input id='pin' name="+v.rno+" type='checkbox'>"+"</td>";
                  tr+="<td>"+v.rinfo+":&nbsp &nbsp &nbsp"+now+"</td>";
                  tr+="</tr>";
 
@@ -93,5 +99,18 @@
      },"json");
   }
 
-window.onload=Data;
+    function deleteInfo(){
+
+        var ids=$(":checkbox:checked");
+        if(ids.length==0){
+            alert("请选择要删除的公告");
+        }else{
+            var param=$(":checkbox").serialize();
+            location.href="roominfoAction_deleteRoomInfo"+param;
+        }
+
+
+
+    }
+    window.onload=Data;
 </script>

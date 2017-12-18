@@ -47,6 +47,7 @@
 
 		<action name="roominfoAction_*" method="{1}" class="roominfoAction">
 			<result name="addroominfo" type="redirect">/Public.jsp?res=${res}</result>
+			<result name="deleteRoomInfo" type="redirect">/Public.jsp?res=${res}</result>
 			<result name="findRoomInfo" type="json">
 				<param name="includeProperties">roominfolist.*</param>
 			</result>

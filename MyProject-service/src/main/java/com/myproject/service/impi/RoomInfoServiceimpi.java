@@ -30,6 +30,16 @@ public class RoomInfoServiceimpi implements RoomInfoService {
         return roomInfoDao.findRoomInfo("from RoomPubInfo");
     }
 
+
+
+    //删除一个
+    @Override
+    public boolean deleteRoomInfo(RoomPubInfo roomPubInfo) {
+        return roomInfoDao.deleteRoomInfo(roomPubInfo);
+    }
+
+
+
     public void setRoomInfoDao(RoomInfoDao roomInfoDao) {
         this.roomInfoDao = roomInfoDao;
     }
