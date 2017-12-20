@@ -20,6 +20,7 @@ public class RoomInfoAction {
     private RoomInfoService roomInfoService;
     private int res;
     private List roominfolist;
+    private int[] rno;
 
     //添加公告
     public String addRoomInfo(){
@@ -47,7 +48,7 @@ public class RoomInfoAction {
 
     //删除公告
     public String deleteRoomInfo(){
-        if(roomInfoService.deleteRoomInfo(roomPubInfo)){
+        if(roomInfoService.deleteRoomInfo(rno)){
             res=1;
         }else {
             res=2;
@@ -90,5 +91,13 @@ public class RoomInfoAction {
 
     public void setRes(int res) {
         this.res = res;
+    }
+
+    public int[] getRno() {
+        return rno;
+    }
+
+    public void setRno(int[] rno) {
+        this.rno = rno;
     }
 }

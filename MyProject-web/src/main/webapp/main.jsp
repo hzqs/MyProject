@@ -51,6 +51,7 @@
 
  <!--天气预报接口-->
 
+ <div style="margin-top:-26px;margin-left:450px;color:#5bc0de;font-size: 20px">欢迎您! ${uname}</div>
 
  <table id="mytab" class="table table-striped" style="margin-top: 20px">
      <caption style="color:royalblue">宿舍详细信息:</caption>

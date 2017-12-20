@@ -20,26 +20,32 @@ public class RoomInfoServiceimpi implements RoomInfoService {
     @Resource(name="roominfoDao")
      private RoomInfoDao roomInfoDao;
 
+    //添加
     @Override
     public boolean addRoomInfo(RoomPubInfo roomPubInfo) {
         return roomInfoDao.addRoomInfo(roomPubInfo);
     }
 
+    //查询
     @Override
     public List findRoomInfo() {
         return roomInfoDao.findRoomInfo("from RoomPubInfo");
     }
 
-
-
-    //删除一个
+    //批量删除
     @Override
-    public boolean deleteRoomInfo(RoomPubInfo roomPubInfo) {
-        return roomInfoDao.deleteRoomInfo(roomPubInfo);
+    public boolean deleteRoomInfo(int[] rno) {
+        if(rno!=null&&rno.length>0){
+            for(int i:rno){
+                roomInfoDao.deleteRoomInfo("delete from RoomPubInfo where rno=‘"+i+"'");
+            }
+            return true;
+        }
+        return false;
     }
 
 
-
+   //
     public void setRoomInfoDao(RoomInfoDao roomInfoDao) {
         this.roomInfoDao = roomInfoDao;
     }

@@ -89,7 +89,7 @@
              now = now + date.getSeconds()+"";
 
              var tr="<tr>";
-                 tr+="<td><input id='pin' name="+v.rno+" type='checkbox'>"+"</td>";
+                 tr+="<td><input name='rno' value="+v.rno+" type='checkbox'>"+"</td>";
                  tr+="<td>"+v.rinfo+":&nbsp &nbsp &nbsp"+now+"</td>";
                  tr+="</tr>";
 
@@ -106,10 +106,17 @@
             alert("请选择要删除的公告");
         }else{
             var param=$(":checkbox").serialize();
-            location.href="roominfoAction_deleteRoomInfo"+param;
+             $.post("roominfoAction_deleteRoomInfo",param,function(data){
+               if(data.res==1){
+                   alert("删除成功");
+               }else{
+                   alert("删除失败");
+               }
+
+             });
+
+
         }
-
-
 
     }
     window.onload=Data;

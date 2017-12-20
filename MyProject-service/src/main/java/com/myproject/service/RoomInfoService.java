@@ -14,5 +14,5 @@ public interface RoomInfoService {
     //查询公告
     public List findRoomInfo();
     //删除公告
-    public boolean deleteRoomInfo(RoomPubInfo roomPubInfo);
+    public boolean deleteRoomInfo(int[] rno);
 }
