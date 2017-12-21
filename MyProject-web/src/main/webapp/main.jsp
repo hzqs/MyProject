@@ -17,7 +17,7 @@
     <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 </head>
-<body style="background-color: #c8e5bc">
+<body style="background-color: #faf2cc">
 
 
 
@@ -181,7 +181,7 @@ function addStu(){
      var param=$("#stu").serialize();
         $.post("stuAction_addStu",param,function(data){
           if(data.message==1){
-              alert("添加成功");
+              alert("添加成功");location.href="main.jsp";
           }else if(data.message==2){
               alert("添加失败");
           }if(data.message==3){

@@ -1,5 +1,7 @@
 package com.myproject.dao;
 
+import com.myproject.entity.User;
+
 import java.util.List;
 
 /**
@@ -10,8 +12,8 @@ public interface UserDao {
     //查询用户
     public List findUser(String sql);
 
-
-
+    //注册
+    public boolean addUser(User user);
 
 
 }

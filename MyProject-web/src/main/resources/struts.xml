@@ -35,7 +35,7 @@
 		<action name="userAction_*" method="{1}" class="userAction">
 			<result name="mains">/main.jsp</result>
 			<result name="error">/error.jsp</result>
-			<interceptor-ref name="myLoginStack"/>
+			<result name="addUser" type="redirect">/register.jsp?res=${res}</result>
 		</action>
 
 		<action name="managerAction_*" method="{1}" class="managerAction">

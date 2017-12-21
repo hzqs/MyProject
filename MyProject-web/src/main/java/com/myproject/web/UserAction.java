@@ -19,7 +19,7 @@ public class UserAction {
     private User user;
     @Resource(name="userService")
     private UserService userService;
-
+    private int res;
      //验证登录
     public String loginUser(){
         List list = userService.findUserList(user.getUname(), user.getUpwd());
@@ -33,7 +33,19 @@ public class UserAction {
 
     }
 
-
+    //注册
+    public String addUser(){
+        if(user.getUname()!=null&&user.getUname().length()>0&&user.getUpwd()!=null&&user.getUpwd().length()>=6&&user.getUpwd().length()<=12) {
+            if (userService.addUser(user)) {
+                res = 1;
+            }else{
+                res=2;
+            }
+        }else{
+            res=3;
+        }
+        return "addUser";
+    }
 
     //
     public void setUserService(UserService userService) {
@@ -46,5 +58,13 @@ public class UserAction {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getRes() {
+        return res;
+    }
+
+    public void setRes(int res) {
+        this.res = res;
     }
 }

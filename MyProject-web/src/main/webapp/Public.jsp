@@ -44,7 +44,7 @@
 <input style="margin-left: 400px" type="button" value="删除" onclick="deleteInfo()"/>
 
 
-<form id="pinfo" method="post" action="${pageContext.request.contextPath}/roominfoAction_addRoomInfo" style="height:100px;width:400px;background-color: #ec971f;margin-left: 250px;margin-top: -250px;display: none">
+<form id="pinfo" method="post" action="${pageContext.request.contextPath}/roominfoAction_addRoomInfo" style="height:100px;width:400px;background-color: #ec971f;margin-left: 250px;margin-top: -340px;display: none">
     <div style="margin-top: 20px">公告内容：</div>
     <div style="margin-left: 80px;margin-top: -10px">
         <textarea name="roomPubInfo.rinfo" id="" cols="40" rows="2"></textarea></div>
@@ -92,15 +92,12 @@
                  tr+="<td><input name='rno' value="+v.rno+" type='checkbox'>"+"</td>";
                  tr+="<td>"+v.rinfo+":&nbsp &nbsp &nbsp"+now+"</td>";
                  tr+="</tr>";
-
                  $("#mytab").append(tr);
-
          });
      },"json");
   }
 
     function deleteInfo(){
-
         var ids=$(":checkbox:checked");
         if(ids.length==0){
             alert("请选择要删除的公告");
@@ -112,12 +109,8 @@
                }else{
                    alert("删除失败");
                }
-
-             });
-
-
+             },"json");
         }
-
     }
     window.onload=Data;
 </script>

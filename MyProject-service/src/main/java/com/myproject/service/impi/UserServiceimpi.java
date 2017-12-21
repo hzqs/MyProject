@@ -1,6 +1,7 @@
 package com.myproject.service.impi;
 
 import com.myproject.dao.UserDao;
+import com.myproject.entity.User;
 import com.myproject.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -27,6 +28,12 @@ public class UserServiceimpi implements UserService{
         return userDao.findUser("from User where uname='"+uname+"' and upwd='"+upwd+"'");
 
     }
+
+    @Override
+    public boolean addUser(User user) {
+        return userDao.addUser(user);
+    }
+
 
     //
     public void setUserDao(UserDao userDao) {
