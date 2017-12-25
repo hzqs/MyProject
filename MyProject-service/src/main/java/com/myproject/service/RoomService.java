@@ -14,4 +14,11 @@ public interface RoomService {
     public List findRoomList();
     //查询出宿舍详细信息(主页)
     public List findRoomInfo();
+    //查询出详细的宿舍学生姓名；
+    public List findStuName(Room room);
+
+
+
+
+
 }

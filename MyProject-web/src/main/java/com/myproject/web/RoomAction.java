@@ -2,6 +2,7 @@ package com.myproject.web;
 
 import com.myproject.entity.Room;
 import com.myproject.service.RoomService;
+import com.opensymphony.xwork2.ActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -22,6 +23,7 @@ public class RoomAction {
     private int res;
     private List roomList;
     private List roomInfoList;
+    private List stulistName;
     public String addRoom(){
         if(room.getRname()!=null&&room.getRname().length()>0) {
             if (roomService.addRoom(room)) {
@@ -38,7 +40,6 @@ public class RoomAction {
     //查询宿舍
     public String  findRoomList(){
         roomList=roomService.findRoomList();
-
         return "findRoom";
     }
 
@@ -49,7 +50,13 @@ public class RoomAction {
         roomInfoList=roomService.findRoomInfo();
         return "findRoomInfo";
     }
+     //查询出宿舍的学生姓名
+    public String findStuName(){
+      stulistName=roomService.findStuName(room);
+        ActionContext.getContext().getSession().put("stulistName",stulistName);
+        return "stuName";
 
+    }
 
 
 
@@ -89,5 +96,14 @@ public class RoomAction {
 
     public void setRoomInfoList(List roomInfoList) {
         this.roomInfoList = roomInfoList;
+    }
+
+
+    public List getStulistName() {
+        return stulistName;
+    }
+
+    public void setStulistName(List stulistName) {
+        this.stulistName = stulistName;
     }
 }

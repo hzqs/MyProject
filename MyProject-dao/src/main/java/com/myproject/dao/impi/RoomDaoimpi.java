@@ -32,4 +32,13 @@ public class RoomDaoimpi extends BaseDao implements RoomDao{
         return getSession().createQuery(sql).list();
     }
 
+    //找出宿舍的学生姓名
+    @Override
+    public List findStuName(String sql) {
+        return getSession().createQuery(sql).list();
+    }
+
+
+
+
 }

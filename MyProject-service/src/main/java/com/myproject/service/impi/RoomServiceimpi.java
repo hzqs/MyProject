@@ -36,11 +36,22 @@ public class RoomServiceimpi implements RoomService{
     //查询出宿舍详细信息（主页）
     @Override
     public List findRoomInfo() {
-        return roomDao.findRoomInfo("select r.rname,r.rpay,count(s.sname),m.mname from Stu s inner join s.room r left join r.manager m" +
+        return roomDao.findRoomInfo("select r.rno,r.rname,r.rpay,count(s.sname),m.mname from Stu s inner join s.room r left join r.manager m" +
                 " group by r.rname \n" );
     }
 
-    //
+    //查询出宿舍的学生姓名
+    @Override
+    public List findStuName(Room room) {
+        return roomDao.findStuName("select r.rname,s.sname,s.stel from Stu s inner join s.room r where r.rno="+room.getRno());
+    }
+    //查询出宿舍的学生姓名
+
+
+
+
+
+
     public void setRoomDao(RoomDao roomDao) {
         this.roomDao = roomDao;
     }

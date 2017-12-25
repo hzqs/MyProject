@@ -50,7 +50,6 @@
 		    <result name="updateManager" type="redirect">/updateManager.jsp?res=${res}</result>
 			<interceptor-ref name="myLoginStack"/>
 		</action>
-
 		<action name="roomAction_*" method="{1}" class="roomAction">
 			<result name="addRoom" type="redirect">/main.jsp?res=${res}</result>
 		    <result name="findRoom" type="json">
@@ -59,6 +58,7 @@
 			<result name="findRoomInfo" type="json">
 				<param name="includeProperties">roomInfoList.*</param>
 			</result>
+			<result name="stuName">/roomStuName.jsp</result>
 			<interceptor-ref name="myLoginStack"/>
 		</action>
 

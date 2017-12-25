@@ -200,11 +200,11 @@ function addStu(){
         $.post("roomAction_findRoomInfo","",function(data){
              $.each(data.roomInfoList,function(i,v){
                  var tr="<tr>";
-                 tr+="<td>"+v[0]+"</td>";
-                 tr+="<td>"+v[2]+"</td>";
                  tr+="<td>"+v[1]+"</td>";
                  tr+="<td>"+v[3]+"</td>";
-                 tr+="<td><a href='#'>详情</a> </td>";
+                 tr+="<td>"+v[2]+"</td>";
+                 tr+="<td>"+v[4]+"</td>";
+                 tr+="<td><a href='roomAction_findStuName?room.rno="+v[0]+"'>查看人员</a> </td>";
                  tr+="</tr>";
                  $("#mytab").append(tr);
              });

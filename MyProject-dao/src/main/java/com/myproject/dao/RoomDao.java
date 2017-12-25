@@ -15,4 +15,16 @@ public interface RoomDao {
     //查询出宿舍的详细信息（主页）
     public List findRoomInfo(String sql);
 
+    //详情查询出宿舍详细的人名
+    public List findStuName(String sql);
+
+     /*根据宿舍rno查相关宿舍学生姓名；
+     * 传入room.rno,
+     *
+     * */
+
+
+
+
+
 }

@@ -52,8 +52,8 @@
        <input type="button" value="取消" style="" onclick="cancel()">
 
 </form>
-
-
+<br/>
+<a href="${pageContext.request.contextPath}/main.jsp">返回主页</a>
 
 </body>
 </html>

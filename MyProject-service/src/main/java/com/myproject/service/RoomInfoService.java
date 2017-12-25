@@ -1,5 +1,6 @@
 package com.myproject.service;
 
+import com.myproject.entity.Room;
 import com.myproject.entity.RoomPubInfo;
 
 import java.util.List;
@@ -15,4 +16,5 @@ public interface RoomInfoService {
     public List findRoomInfo();
     //删除公告
     public boolean deleteRoomInfo(int[] rno);
+
 }

@@ -52,7 +52,6 @@ public class ManagerAction {
     }
 
 
-
     //删除宿管
     public String deleteManager(){
             if (managerService.deleteManager(manager)) {
