@@ -20,17 +20,24 @@
 <body style="background-color: antiquewhite">
 <h2>宿舍学生信息列表</h2>
 <br/>
-<table border="1" width="300">
-    <tr><td>宿舍名</td>
+<table border="1" width="400">
+    <tr>
+        <td>宿舍名</td>
         <td>学生名</td>
         <td>学生电话</td>
+        <td>身份</td>
+        <td>管理</td>
     </tr>
  <s:iterator  value="#request.stulistName" var="i"  >
          <tr>
 
                  <td>${i[0]}</td>
-                 <td>${i[1]}</td>
                  <td>${i[2]}</td>
+                 <td>${i[3]}</td>
+                 <td>${i[4]==0?"普通成员":"寝室长"}</td>
+             <td>
+                 <a href="roomAction_findStuById?stu.sno=${i[1]}">修改</a>
+             </td>
          </tr>
  </s:iterator>
 </table>

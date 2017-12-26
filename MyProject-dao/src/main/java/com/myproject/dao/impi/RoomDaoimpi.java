@@ -2,6 +2,7 @@ package com.myproject.dao.impi;
 
 import com.myproject.dao.RoomDao;
 import com.myproject.entity.Room;
+import com.myproject.entity.Stu;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -38,7 +39,19 @@ public class RoomDaoimpi extends BaseDao implements RoomDao{
         return getSession().createQuery(sql).list();
     }
 
+    //根据Id查学生
+    @Override
+    public Stu findStuById(Stu stu) {
+        return getSession().get(Stu.class,stu.getSno());
+    }
 
+    //根据
+    @Override
+    public boolean updateRoomStu(Stu stu) {
+         getSession().update(stu);
+         return true;
+    }
+    //修改宿舍中的学生信息
 
 
 }

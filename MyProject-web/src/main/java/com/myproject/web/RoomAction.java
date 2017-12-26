@@ -1,6 +1,7 @@
 package com.myproject.web;
 
 import com.myproject.entity.Room;
+import com.myproject.entity.Stu;
 import com.myproject.service.RoomService;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.context.annotation.Scope;
@@ -24,6 +25,7 @@ public class RoomAction {
     private List roomList;
     private List roomInfoList;
     private List stulistName;
+    private Stu stu;
     public String addRoom(){
         if(room.getRname()!=null&&room.getRname().length()>0) {
             if (roomService.addRoom(room)) {
@@ -52,13 +54,32 @@ public class RoomAction {
     }
      //查询出宿舍的学生姓名
     public String findStuName(){
-      stulistName=roomService.findStuName(room);
+       stulistName=roomService.findStuName(room);
         ActionContext.getContext().getSession().put("stulistName",stulistName);
         return "stuName";
 
     }
 
+    //根据Id查询出学生
+    public String findStuById(){
+          stu=roomService.findStuById(stu);
+          //
+        return "findRoomStu";
+    }
 
+    //修改宿舍中的学生信息
+    public String updateRoomStu(){
+        if(stu.getSname()!=null&&stu.getSname().length()>0&&stu.getRoom().getRname()!=null&&stu.getRoom().getRname().length()>0) {
+            if (roomService.updateRoomStu(stu)) {
+                res = 1;
+            } else {
+                res = 2;
+            }
+        }else {
+            res=3;
+        }
+        return "updateRoomStu";
+    }
 
 
     //
@@ -106,4 +127,14 @@ public class RoomAction {
     public void setStulistName(List stulistName) {
         this.stulistName = stulistName;
     }
+
+    public Stu getStu() {
+        return stu;
+    }
+
+    public void setStu(Stu stu) {
+        this.stu = stu;
+    }
+
+
 }

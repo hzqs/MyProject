@@ -42,7 +42,7 @@
  </button></a>
 
  <a href="#"><button  style="background: #f0ad4e;margin-left:-650px;margin-top: 20px" id="fat-btnss" class="btn btn-primary" data-loading-text="Loading..."
-                               type="button" > 宿舍管理
+                               type="button" > 宿舍守则
  </button></a>
 
  <a href="Public.jsp"><button  style="background:darkkhaki;margin-left:960px;margin-top: -34px" id="fat-btns" class="btn btn-primary" data-loading-text="Loading..."
@@ -53,7 +53,7 @@
 
  <div style="margin-top:-26px;margin-left:450px;color:#5bc0de;font-size: 20px">欢迎您! ${uname}</div>
 
- <table id="mytab" class="table table-striped" style="margin-top: 20px">
+ <table id="mytab" class="table table-striped" style="position:absolute;">
      <caption style="color:royalblue">宿舍详细信息:</caption>
      <tr>
          <th>宿舍名</th>
@@ -62,21 +62,29 @@
          <th>宿管</th>
          <th>管理</th>
      </tr>
+
  </table>
 
- <a href="${pageContext.request.contextPath}/index.jsp">退出登录</a>
- <div style="color:#28a4c9;margin-left: 530px;margin-top: 205px;"><img src="${pageContext.request.contextPath}/images/9.png">欢迎使用!,祝您愉快</div>
+ <div style="position:absolute;margin-top: 400px"><a href="${pageContext.request.contextPath}/index.jsp">退出登录</a></div>
+ <div style="color:#28a4c9;margin-left: 530px;margin-top: 500px;"><img src="${pageContext.request.contextPath}/images/9.png">欢迎使用!,祝您愉快</div>
 
 
 <!-- 添加宿舍-->
- <form  id="room" method="post" action="roomAction_addRoom" class="form-horizontal" role="form" style="margin-top:-200px;margin-left:-100px;display: none">
+
+
+ <!-- 添加宿舍-->
+ <form  id="room" method="post" action="roomAction_addRoom" class="form-horizontal" role="form" style="position:absolute;margin-top:-200px;margin-left:100px;display: none">
      <div class="form-group has-success">
          <label class="col-sm-2 control-label" for="inputSuccessv" style="font-size: 15px">宿舍号:</label>
          <div class="col-sm-10">
              <input name="room.rname" style="width: 200px;height: 28px" type="text" class="form-control" id="inputSuccessv">
-            分配宿管: <select name="room.manager.mno">
-                 <option value="">请选择宿管</option>
-             </select><br/>
+             <br/>
+
+             <label class="col-sm-2 control-label" for="inputSuccessvs" style="margin-top:20px;margin-left:-60px;font-size: 15px">费用:</label>
+             <input name="room.rpay" style="width: 200px;height: 28px" type="text" class="form-control" id="inputSuccessvs">
+             分配宿管: <select name="room.manager.mno">
+             <option value="">请选择宿管</option>
+         </select><br/>
              <button type="submit" class="btn btn-default">添加</button>
              <input type="button" value="取消添加" onclick="celroom()">
          </div>
@@ -108,8 +116,8 @@
      <div class="form-group has-success" style="margin-top: -10px">
          <label class="col-sm-2 control-label" for="inputSuccessus" style="font-size: 15px">学生身份:</label>
          <div class="col-sm-10" style="margin-top: 6px;margin-left: -12px">
-             <input type="radio" value="普通成员" name="stu.status"  id="inputSuccessus" checked>普通成员
-             <input type="radio" value="寝室长" name="stu.status"  id="inputSuccessutss" >寝室长
+             <input type="radio" value="0" name="stu.status"  id="inputSuccessus" checked>普通成员
+             <input type="radio" value="1" name="stu.status"  id="inputSuccessutss" >寝室长
          </div>
      </div>
      <!--给学生分配宿舍-->
@@ -122,6 +130,8 @@
              <input type="button" value="取消添加" onclick="celStu()">
          </div>
      </div>
+
+
  </form>
 
 
@@ -204,7 +214,7 @@ function addStu(){
                  tr+="<td>"+v[3]+"</td>";
                  tr+="<td>"+v[2]+"</td>";
                  tr+="<td>"+v[4]+"</td>";
-                 tr+="<td><a href='roomAction_findStuName?room.rno="+v[0]+"'>查看人员</a> </td>";
+                 tr+="<td><a href='roomAction_findStuName?room.rno="+v[0]+"'>查看人员|</a><a href=''>修改</a></td>";
                  tr+="</tr>";
                  $("#mytab").append(tr);
              });

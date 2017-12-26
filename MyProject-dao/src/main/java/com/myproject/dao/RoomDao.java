@@ -1,6 +1,7 @@
 package com.myproject.dao;
 
 import com.myproject.entity.Room;
+import com.myproject.entity.Stu;
 
 import java.util.List;
 
@@ -17,11 +18,12 @@ public interface RoomDao {
 
     //详情查询出宿舍详细的人名
     public List findStuName(String sql);
+    //根据Id查询出学生信息
+    public Stu findStuById(Stu stu);
+    //修改
+    public boolean updateRoomStu(Stu stu);
 
-     /*根据宿舍rno查相关宿舍学生姓名；
-     * 传入room.rno,
-     *
-     * */
+
 
 
 

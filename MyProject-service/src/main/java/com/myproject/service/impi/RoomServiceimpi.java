@@ -2,6 +2,7 @@ package com.myproject.service.impi;
 
 import com.myproject.dao.RoomDao;
 import com.myproject.entity.Room;
+import com.myproject.entity.Stu;
 import com.myproject.service.RoomService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -43,7 +44,19 @@ public class RoomServiceimpi implements RoomService{
     //查询出宿舍的学生姓名
     @Override
     public List findStuName(Room room) {
-        return roomDao.findStuName("select r.rname,s.sname,s.stel from Stu s inner join s.room r where r.rno="+room.getRno());
+        return roomDao.findStuName("select r.rname,s.sno,s.sname,s.stel,s.status from Stu s inner join s.room r where r.rno="+room.getRno());
+    }
+
+    //根据Id查询出学生
+    @Override
+    public Stu findStuById(Stu stu) {
+        return roomDao.findStuById(stu);
+    }
+
+    //修改宿舍中的学生信息
+    @Override
+    public boolean updateRoomStu(Stu stu) {
+        return roomDao.updateRoomStu(stu);
     }
     //查询出宿舍的学生姓名
 

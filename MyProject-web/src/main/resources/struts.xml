@@ -10,16 +10,6 @@
 
 	<!-- 设置Action -->
 	<package name="mytest" extends="json-default">
-		<!-- 配置拦截器 -->
-		<interceptors>
-			<interceptor name="loginInterceptor" class="com.myproject.web.interceptor.LoginInterceptor"/>
-			<interceptor-stack name="myLoginStack">
-				<interceptor-ref name="loginInterceptor">
-					<param name="excludeMethods">loginUser</param>
-				</interceptor-ref>
-				<interceptor-ref name="defaultStack"/>
-			</interceptor-stack>
-		</interceptors>
 
 		<!-- 配置全局异常处理 -->
 		<global-results>
@@ -48,7 +38,7 @@
 			<result name="toApdate">/updateManager.jsp</result>
 			<result name="deleteManager" type="redirect">/Manager.jsp?res=${res}</result>
 		    <result name="updateManager" type="redirect">/updateManager.jsp?res=${res}</result>
-			<interceptor-ref name="myLoginStack"/>
+
 		</action>
 		<action name="roomAction_*" method="{1}" class="roomAction">
 			<result name="addRoom" type="redirect">/main.jsp?res=${res}</result>
@@ -59,14 +49,15 @@
 				<param name="includeProperties">roomInfoList.*</param>
 			</result>
 			<result name="stuName">/roomStuName.jsp</result>
-			<interceptor-ref name="myLoginStack"/>
+			<result name="findRoomStu">/updateRoomStu.jsp</result>
+			<result name="updateRoomStu" type="redirect">/updateRoomStu.jsp?res=${res}</result>
 		</action>
 
 		<action name="stuAction_*" method="{1}" class="stuAction">
 			<result name="addStu" type="json">
 				<param name="includeProperties">message.*</param>
 			</result>
-			<interceptor-ref name="myLoginStack"/>
+
 		</action>
 
 		<action name="roominfoAction_*" method="{1}" class="roominfoAction">
@@ -77,7 +68,7 @@
 			<result name="findRoomInfo" type="json">
 				<param name="includeProperties">roominfolist.*</param>
 			</result>
-			<interceptor-ref name="myLoginStack"/>
+
 		</action>
 	</package>
 </struts>

@@ -1,6 +1,7 @@
 package com.myproject.service;
 
 import com.myproject.entity.Room;
+import com.myproject.entity.Stu;
 
 import java.util.List;
 
@@ -16,7 +17,10 @@ public interface RoomService {
     public List findRoomInfo();
     //查询出详细的宿舍学生姓名；
     public List findStuName(Room room);
-
+     ///根据Id查询出学生
+    public Stu findStuById(Stu stu);
+    //修改宿舍中的学生信息
+    public boolean updateRoomStu(Stu stu);
 
 
 
