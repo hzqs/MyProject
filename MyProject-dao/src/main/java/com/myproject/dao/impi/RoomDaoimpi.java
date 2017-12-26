@@ -51,6 +51,19 @@ public class RoomDaoimpi extends BaseDao implements RoomDao{
          getSession().update(stu);
          return true;
     }
+
+    //根据Id查询出宿舍信息
+    @Override
+    public Room findRoomById(Room room) {
+        return getSession().get(Room.class,room.getRno());
+    }
+
+    //修改宿舍信息
+    @Override
+    public boolean updateRoom(Room room) {
+        getSession().update(room);
+        return true;
+    }
     //修改宿舍中的学生信息
 
 

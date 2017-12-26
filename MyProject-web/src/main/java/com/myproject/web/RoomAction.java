@@ -81,6 +81,26 @@ public class RoomAction {
         return "updateRoomStu";
     }
 
+      //根据Id查询出宿舍信息
+     public String findRoomById(){
+        room=roomService.findRoomById(room);
+        return "findRoomById";
+     }
+
+     //修改宿舍信息
+    public String updateRoom(){
+         if(room.getManager().getMname()!=null&&room.getManager().getMname().length()>0) {
+             if (roomService.updateRoom(room)) {
+                 res = 1;
+             } else {
+                 res = 2;
+             }
+         }else{
+             res=3;
+         }
+         return "updateRoom";
+     }
+
 
     //
     public void setRoomService(RoomService roomService) {

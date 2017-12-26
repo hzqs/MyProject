@@ -22,6 +22,11 @@ public interface RoomDao {
     public Stu findStuById(Stu stu);
     //修改
     public boolean updateRoomStu(Stu stu);
+    //根据ID查询出宿舍的信息
+    public Room findRoomById(Room room);
+    //修改宿舍
+    public boolean updateRoom(Room room);
+
 
 
 

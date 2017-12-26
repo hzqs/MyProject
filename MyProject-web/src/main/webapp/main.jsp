@@ -214,7 +214,7 @@ function addStu(){
                  tr+="<td>"+v[3]+"</td>";
                  tr+="<td>"+v[2]+"</td>";
                  tr+="<td>"+v[4]+"</td>";
-                 tr+="<td><a href='roomAction_findStuName?room.rno="+v[0]+"'>查看人员|</a><a href=''>修改</a></td>";
+                 tr+="<td><a href='roomAction_findStuName?room.rno="+v[0]+"'>查看人员|</a><a href='roomAction_findRoomById?room.rno="+v[0]+"'>修改</a></td>";
                  tr+="</tr>";
                  $("#mytab").append(tr);
              });

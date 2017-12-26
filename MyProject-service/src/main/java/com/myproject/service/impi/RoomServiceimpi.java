@@ -58,13 +58,25 @@ public class RoomServiceimpi implements RoomService{
     public boolean updateRoomStu(Stu stu) {
         return roomDao.updateRoomStu(stu);
     }
-    //查询出宿舍的学生姓名
+
+    //根据ID查询出宿舍信息
+    @Override
+    public Room findRoomById(Room room) {
+        return roomDao.findRoomById(room);
+    }
+
+    //修改宿舍信息
+    @Override
+    public boolean updateRoom(Room room) {
+        return roomDao.updateRoom(room);
+    }
 
 
 
 
 
 
+//
     public void setRoomDao(RoomDao roomDao) {
         this.roomDao = roomDao;
     }

@@ -21,7 +21,10 @@ public interface RoomService {
     public Stu findStuById(Stu stu);
     //修改宿舍中的学生信息
     public boolean updateRoomStu(Stu stu);
-
+    //根据ID查询出宿舍信息
+    public Room findRoomById(Room room);
+    //修改宿舍信息
+    public boolean updateRoom(Room room);
 
 
 

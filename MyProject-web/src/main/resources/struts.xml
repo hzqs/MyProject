@@ -51,8 +51,9 @@
 			<result name="stuName">/roomStuName.jsp</result>
 			<result name="findRoomStu">/updateRoomStu.jsp</result>
 			<result name="updateRoomStu" type="redirect">/updateRoomStu.jsp?res=${res}</result>
+			<result name="findRoomById">/updateRoom.jsp</result>
+			<result name="updateRoom" type="redirect">/updateRoom.jsp?res=${res}</result>
 		</action>
-
 		<action name="stuAction_*" method="{1}" class="stuAction">
 			<result name="addStu" type="json">
 				<param name="includeProperties">message.*</param>
