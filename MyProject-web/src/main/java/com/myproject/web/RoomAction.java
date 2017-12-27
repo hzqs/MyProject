@@ -69,15 +69,13 @@ public class RoomAction {
 
     //修改宿舍中的学生信息
     public String updateRoomStu(){
-        if(stu.getSname()!=null&&stu.getSname().length()>0&&stu.getRoom().getRname()!=null&&stu.getRoom().getRname().length()>0) {
+
             if (roomService.updateRoomStu(stu)) {
                 res = 1;
             } else {
                 res = 2;
             }
-        }else {
-            res=3;
-        }
+
         return "updateRoomStu";
     }
 
@@ -89,15 +87,13 @@ public class RoomAction {
 
      //修改宿舍信息
     public String updateRoom(){
-         if(room.getManager().getMname()!=null&&room.getManager().getMname().length()>0) {
+
              if (roomService.updateRoom(room)) {
                  res = 1;
              } else {
                  res = 2;
              }
-         }else{
-             res=3;
-         }
+
          return "updateRoom";
      }
 

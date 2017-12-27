@@ -20,15 +20,16 @@ public class StuAction {
     private int message;
     //添加学生
     public String addStu(){
-        if(stu.getSname()!=null&&stu.getSname().length()>0&&stu.getRoom().getRname()!=null&&stu.getRoom().getRname().length()>0){
-              if(stuService.addStu(stu)){
-                  message=1;
-              }else{
-                  message=2;
-              }
-           }else{
-            message=3;
-        }
+            if(stu.getSname()!=null&&stu.getSname().length()>0) {
+                if (stuService.addStu(stu)) {
+                    message = 1;
+                } else {
+                    message = 2;
+                }
+            }else{
+                message=3;
+            }
+
         return "addStu";
     }
 
