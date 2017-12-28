@@ -28,8 +28,8 @@ public class RoomInfoImpi extends  BaseDao implements RoomInfoDao {
 
     //批量删除公告
     @Override
-    public boolean deleteRoomInfo(String sql) {
-        getSession().createQuery(sql).executeUpdate();
+    public boolean deleteRoomInfo(RoomPubInfo roomPubInfo) {
+        getSession().delete(roomPubInfo);
         return true;
     }
 

@@ -41,10 +41,10 @@
 
 
 </table>
-<input style="margin-left: 400px" type="button" value="删除" onclick="deleteInfo()"/>
+<input style="margin-left: 200px" type="button" value="删除" onclick="deleteInfo()"/>
 
 
-<form id="pinfo" method="post" action="${pageContext.request.contextPath}/roominfoAction_addRoomInfo" style="height:100px;width:400px;background-color: #ec971f;margin-left: 250px;margin-top: -340px;display: none">
+<form id="pinfo" method="post" action="${pageContext.request.contextPath}/roominfoAction_addRoomInfo" style="position:absolute;height:100px;width:400px;background-color: #ec971f;margin-left: 250px;margin-top: -280px;display: none">
     <div style="margin-top: 20px">公告内容：</div>
     <div style="margin-left: 80px;margin-top: -10px">
         <textarea name="roomPubInfo.rinfo" id="" cols="40" rows="2"></textarea></div>
@@ -78,19 +78,10 @@
   function Data() {
      $.post("roominfoAction_findRoomInfo","",function (data) {
          $.each(data.roominfolist,function(i,v){
-             //日期转换
-             var date=new Date();
-             var now = "";
-             now = date.getFullYear()+"-"; //读英文就行了
-             now = now + (date.getMonth()+1)+"-";//取月的时候取的是当前月-1如果想取当前月+1就可以了
-             now = now + date.getDate()+" ";
-             now = now + date.getHours()+":";
-             now = now + date.getMinutes()+":";
-             now = now + date.getSeconds()+"";
 
              var tr="<tr>";
                  tr+="<td><input name='rno' value="+v.rno+" type='checkbox'>"+"</td>";
-                 tr+="<td>"+v.rinfo+":&nbsp &nbsp &nbsp"+now+"</td>";
+                 tr+="<td>"+v.rinfo+"</td>";
                  tr+="</tr>";
                  $("#mytab").append(tr);
          });
@@ -105,7 +96,7 @@
             var param=$(":checkbox").serialize();
              $.post("roominfoAction_deleteRoomInfo",param,function(data){
                if(data.res==1){
-                   alert("删除成功");
+                   alert("删除成功");location.href="Public.jsp";
                }else{
                    alert("删除失败");
                }

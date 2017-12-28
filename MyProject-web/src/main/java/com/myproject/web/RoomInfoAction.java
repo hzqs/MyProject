@@ -69,14 +69,6 @@ public class RoomInfoAction {
         this.roomInfoService = roomInfoService;
     }
 
-    public int getRess() {
-        return res;
-    }
-
-    public void setRess(int ress) {
-        this.res = ress;
-    }
-
     public List getRoominfolist() {
         return roominfolist;
     }

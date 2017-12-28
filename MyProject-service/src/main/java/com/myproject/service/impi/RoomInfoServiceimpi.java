@@ -36,8 +36,10 @@ public class RoomInfoServiceimpi implements RoomInfoService {
     @Override
     public boolean deleteRoomInfo(int[] rno) {
         if(rno!=null&&rno.length>0){
-            for(int i:rno){
-                roomInfoDao.deleteRoomInfo("delete from RoomPubInfo where rno=‘"+i+"'");
+            for(int rnos:rno){
+                RoomPubInfo roomPubInfo=new RoomPubInfo();
+                roomPubInfo.setRno(rnos);
+                roomInfoDao.deleteRoomInfo(roomPubInfo);
             }
             return true;
         }
