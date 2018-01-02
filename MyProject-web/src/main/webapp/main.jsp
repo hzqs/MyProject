@@ -41,9 +41,6 @@
           type="button" > 宿管详情
  </button></a>
 
- <a href="#"><button  style="background: #f0ad4e;margin-left:-650px;margin-top: 20px" id="fat-btnss" class="btn btn-primary" data-loading-text="Loading..."
-                               type="button" > 宿舍守则
- </button></a>
 
  <a href="Public.jsp"><button  style="background:darkkhaki;margin-left:960px;margin-top: -34px" id="fat-btns" class="btn btn-primary" data-loading-text="Loading..."
                              type="button" > 宿舍公告
@@ -128,6 +125,7 @@
                        </select><br/>
              <input type="button"  value="添加" onclick="addStu()"></input>
              <input type="button" value="取消添加" onclick="celStu()">
+             <button type="reset">重置</button>
          </div>
      </div>
 
@@ -191,7 +189,7 @@ function addStu(){
      var param=$("#stu").serialize();
         $.post("stuAction_addStu",param,function(data){
           if(data.message==1){
-              alert("添加成功");location.href="main.jsp";
+              alert("添加成功");
           }else if(data.message==2){
               alert("添加失败");
           }if(data.message==3){
