@@ -123,7 +123,7 @@
              分配宿舍: <select name="stu.room.rno">
                           <option value="">请选择宿舍</option>
                        </select><br/>
-             <input type="button"  value="添加" onclick="addStu()"></input>
+             <input type="button"value="添加" onclick="addStu()"></input>
              <input type="button" value="取消添加" onclick="celStu()">
              <button type="reset">重置</button>
          </div>
@@ -189,7 +189,7 @@ function addStu(){
      var param=$("#stu").serialize();
         $.post("stuAction_addStu",param,function(data){
           if(data.message==1){
-              alert("添加成功");
+              alert("添加成功");location.href="main.jsp";
           }else if(data.message==2){
               alert("添加失败");
           }if(data.message==3){

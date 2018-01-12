@@ -31,15 +31,15 @@
     <p style="color: green">请完善信息</p>
 </s:elseif>
 
-<s:form method="POST" action="roomAction_updateRoom">
-      <s:hidden name="room.rno"/>
-    宿舍名:<s:textfield name="room.rname"/><br/>
-    宿舍费用:<s:textfield name="room.rpay"/><br/>
+<form id="myform" method="POST">
+      <input type="hidden" name="room.rno" value="${room.rno}"/>
+    宿舍名：<input  name="room.rname" value="${room.rname}"/><br/>
+    宿舍费用:<input name="room.rpay" value="${room.rpay}"/><br/>
     分配宿管: <select name="room.manager.mno">
     <option value="">请选择宿管</option>
             </select><br/>
-   <s:submit value="修改"/>
-</s:form>
+     <input type="button" value="修改" onclick="updateRoom()">
+</form>
 
 
 <a href="main.jsp">返回主页</a>
@@ -58,4 +58,33 @@
         },"json");
     });
 
+
+    //修改宿舍信息
+    function updateRoom() {
+
+       var ok=true;
+        var mn=$(":input[name='room.manager.mno']").val();
+        var rn=$(":input[name='room.rname']").val();
+        if(rn=null||rn.length==0){
+            alert("请填写宿舍名");
+            ok=false;
+        }
+        if(mn==null||mn.length==0){
+            alert("请选择宿管");
+            ok=false;
+        }
+        if(ok==true){
+            var param=$("#myform").serialize();
+             $.post("roomAction_updateRoom",param,function(data){
+                 if(data.res==1){
+                     alert("修改成功");;
+                 }else if(data.res==2){
+                     alert("修改失败");
+                 }
+             },"json");
+        }
+
+
+
+    }
 </script>

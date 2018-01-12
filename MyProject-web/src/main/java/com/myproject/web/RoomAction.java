@@ -87,15 +87,13 @@ public class RoomAction {
 
      //修改宿舍信息
     public String updateRoom(){
-
-             if (roomService.updateRoom(room)) {
-                 res = 1;
-             } else {
-                 res = 2;
-             }
-
-         return "updateRoom";
-     }
+                if (roomService.updateRoom(room)) {
+                    res = 1;
+                } else {
+                    res = 2;
+                }
+                  return "updateRoom";
+            }
 
 
     //

@@ -80,10 +80,6 @@ public class ManagerAction {
 
 
 
-
-
-
-
      //
     public void setManagerService(ManagerService managerService) {
         this.managerService = managerService;
