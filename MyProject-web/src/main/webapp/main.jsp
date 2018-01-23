@@ -70,34 +70,39 @@
 
 
  <!-- 添加宿舍-->
- <form  id="room" method="post" action="roomAction_addRoom" class="form-horizontal" role="form" style="position:absolute;margin-top:-200px;margin-left:100px;display: none">
+ <div id="mydiv2" style="position:absolute;background-color: #5bc0de;height:300px;width: 500px;margin-top:-420px;margin-left: 200px;display: none" >
+ <form  id="room" method="post" action="roomAction_addRoom" class="form-horizontal" role="form" style="margin-top:60px;margin-left:0px;">
      <div class="form-group has-success">
-         <label class="col-sm-2 control-label" for="inputSuccessv" style="font-size: 15px">宿舍号:</label>
-         <div class="col-sm-10">
+         <label class="col-sm-4 control-label" for="inputSuccessv" style="font-size: 15px">宿舍号:</label>
+         <div class="col-sm-8">
              <input name="room.rname" style="width: 200px;height: 28px" type="text" class="form-control" id="inputSuccessv">
              <br/>
 
-             <label class="col-sm-2 control-label" for="inputSuccessvs" style="margin-top:20px;margin-left:-60px;font-size: 15px">费用:</label>
+             <label class="col-sm-4 control-label" for="inputSuccessvs" style="margin-left:-120px;font-size: 15px">费用:</label>
              <input name="room.rpay" style="width: 200px;height: 28px" type="text" class="form-control" id="inputSuccessvs">
+             <div style="margin-top: 10px">
              分配宿管: <select name="room.manager.mno">
              <option value="">请选择宿管</option>
          </select><br/>
              <button type="submit" class="btn btn-default">添加</button>
              <input type="button" value="取消添加" onclick="celroom()">
+             </div>
          </div>
      </div>
  </form>
+ </div>
+ <div id="mydiv" style="position:absolute;background-color: #5bc0de;height:300px;width: 500px;margin-top:-420px;margin-left: 200px;display: none" >
  <!--添加学生-->
- <form  id="stu" method="post"  class="form-horizontal" role="form" style="margin-top:-250px;margin-left:-100px;display: none">
+ <form  id="stu" method="post"  class="form-horizontal" role="form" style="margin-top:50px;margin-left:10px;">
      <div class="form-group has-success">
-         <label class="col-sm-2 control-label" for="inputSuccessu" style="font-size: 15px">学生名:</label>
-         <div class="col-sm-10">
+         <label class="col-sm-4 control-label" for="inputSuccessu" style="font-size: 15px">学生名:</label>
+         <div class="col-sm-8">
              <input name="stu.sname" style="margin-left:-12px;width: 200px;height: 28px" type="text" class="form-control" id="inputSuccessu"><div id="stun"></div>
          </div>
      </div>
 
      <div class="form-group has-success" style="margin-top: -10px">
-         <label class="col-sm-2 control-label" for="inputSuccessut" style="font-size: 15px">学生性别:</label>
+         <label class="col-sm-4 control-label" for="inputSuccessut" style="font-size: 15px">学生性别:</label>
          <div style="margin-top: 6px">
          <input type="radio" value="男" name="stu.ssex"  id="inputSuccessut" checked>男
          <input type="radio" value="男" name="stu.ssex"  id="inputSuccessuts" >女
@@ -105,21 +110,21 @@
      </div>
 
      <div class="form-group has-success" style="margin-top: -10px">
-         <label class="col-sm-2 control-label" for="inputSuccessul" style="font-size: 15px">学生电话:</label>
-         <div class="col-sm-10">
+         <label class="col-sm-4 control-label" for="inputSuccessul" style="font-size: 15px">学生电话:</label>
+         <div class="col-sm-8">
              <input name="stu.stel" style=";margin-top:5px;margin-left:-12px;width: 200px;height: 28px" type="text" class="form-control" id="inputSuccessul"><div id="message"></div>
          </div>
      </div>
      <div class="form-group has-success" style="margin-top: -10px">
-         <label class="col-sm-2 control-label" for="inputSuccessus" style="font-size: 15px">学生身份:</label>
-         <div class="col-sm-10" style="margin-top: 6px;margin-left: -12px">
+         <label class="col-sm-4 control-label" for="inputSuccessus" style="font-size: 15px">学生身份:</label>
+         <div class="col-sm-8" style="margin-top: 6px;margin-left: -12px">
              <input type="radio" value="0" name="stu.status"  id="inputSuccessus" checked>普通成员
              <input type="radio" value="1" name="stu.status"  id="inputSuccessutss" >寝室长
          </div>
      </div>
      <!--给学生分配宿舍-->
-     <div class="form-group has-success" style="margin-top: -6px;margin-left: 200px">
-         <div class="col-sm-10">
+     <div class="form-group has-success" style="margin-top: -6px;margin-left: 70px">
+         <div class="col-sm-8">
              分配宿舍: <select name="stu.room.rno">
                           <option value="">请选择宿舍</option>
                        </select><br/>
@@ -131,7 +136,7 @@
 
 
  </form>
-
+ </div>
 
 </body>
 </html>
@@ -139,10 +144,10 @@
 
 
  function su(){  //打开添加宿舍的表单
-       $("#room").show();
+       $("#mydiv2").show();
  }
  function celroom(){  //关闭添加宿舍的表单
-     $("#room").hide();
+     $("#mydiv2").hide();
  }
 
     $(function(){
@@ -168,10 +173,10 @@
     });
 
 function openstu(){
-    $("#stu").show();
+    $("#mydiv").show();
 }
 function celStu(){
-    $("#stu").hide();
+    $("#mydiv").hide();
 
 }
 function addStu(){
@@ -218,6 +223,8 @@ function addStu(){
              });
         },"json");
   }
+
+
 
 window.onload=findRoomInfo;
 

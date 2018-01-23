@@ -44,11 +44,11 @@
 <input style="margin-left: 200px" type="button" value="删除" onclick="deleteInfo()"/>
 
 
-<form id="pinfo" method="post" action="${pageContext.request.contextPath}/roominfoAction_addRoomInfo" style="position:absolute;height:100px;width:400px;background-color: #ec971f;margin-left: 250px;margin-top: -280px;display: none">
+<form id="pinfo" method="post" action="${pageContext.request.contextPath}/roominfoAction_addRoomInfo" style="position:absolute;height:150px;width:400px;background-color: #ec971f;margin-left: 250px;margin-top: -260px;display: none">
     <div style="margin-top: 20px">公告内容：</div>
     <div style="margin-left: 80px;margin-top: -10px">
         <textarea name="roomPubInfo.rinfo" id="" cols="40" rows="2"></textarea></div>
-       <input type="submit" value="发布" style="margin-left: 20px">
+       <input type="submit" value="发布" style="margin-left: 40px;margin-top: 10px">
        <input type="button" value="取消" style="" onclick="cancel()">
 
 </form>

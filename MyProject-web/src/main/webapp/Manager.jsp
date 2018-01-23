@@ -59,7 +59,7 @@
         <label class="col-sm-2 control-label" for="inputSuccessd" style="font-size: 15px">电话:</label>
         <div class="col-sm-10">
             <input name="manager.mtel" style="width: 200px;height: 28px" type="text" class="form-control" id="inputSuccessd"><div id="addStuMessage" style="position:absolute;margin-left: 200px;margin-top: -20px"></div>
-            <input type="button" value="添加" onclick="addManager()">
+            <input type="button" value="添加" onclick="addManager()" style="margin-top: 10px">
             <input type="button" value="取消" onclick="cance()"/>
         </div>
     </div>
